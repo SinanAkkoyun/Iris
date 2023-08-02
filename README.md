@@ -2,10 +2,10 @@
 
 This fork focuses around making smooth triangle mesh rendering possible like a normal game engine, including PBR support of most shaders.
 
-Most recent change:
+https://github.com/IrisShaders/Iris/pull/2068
 The calculateSmoothTangent previously built the tangent space transformation matrix based upon the geometry plane only. With smooth shaded meshes, each triangle has a per-vertex normal in contrast to a per-face normal. Each normal not necessarily matches with the geometric face normal, which allows shaders to lerp between normals to create an artificial smoothness of the rendered mesh with the same amount of polygons.
 
-With this PR, the built T and B now lie within the per-vertex smooth normal and not within the geometric normal.
+The built T and B now lie within the per-vertex smooth normal and not within the geometric normal.
 image
 ![image](https://github.com/SinanAkkoyun/Iris/assets/43215895/021699e9-f522-4ee4-ab62-e26a61c57f14)
 (The black arrow represents the geometry normal)
@@ -13,6 +13,7 @@ This is achieved by projecting the geometry points (P0, P1, P2) onto the plane o
 
 The tangent space was previously also calculated per-face, not per-vertex. This hindered shaders to interpolate between tangent-spaces per-vertex (like it lerps per-vertex normals).
 
+https://github.com/IrisShaders/Iris/pull/2067
 Also, this fork includes the retrieval of the per-vertex normals, needed for the calculateSmoothTangent method and smooth shading in general.
 
 
