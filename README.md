@@ -1,4 +1,4 @@
-# What this fork is about
+# My contributions
 
 This fork focuses around making smooth triangle mesh rendering possible like a normal game engine, including PBR support of most shaders.
 
